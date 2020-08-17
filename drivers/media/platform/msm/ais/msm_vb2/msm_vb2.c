@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* Copyright (c) 2012-2017, 2019 The Linux Foundation. All rights reserved.
+=======
+/* Copyright (c) 2012-2017, The Linux Foundation. All rights reserved.
+>>>>>>> cbddcbc... Whisky: Import changes
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -19,6 +23,7 @@ static int msm_vb2_queue_setup(struct vb2_queue *q,
 	unsigned int sizes[], void *alloc_ctxs[])
 {
 	int i;
+<<<<<<< HEAD
 	struct msm_v4l2_format_data *data = NULL;
 	int rc = -EINVAL;
 
@@ -32,6 +37,17 @@ static int msm_vb2_queue_setup(struct vb2_queue *q,
 	if (data->type == V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE) {
 		if (WARN_ON(data->num_planes > VIDEO_MAX_PLANES))
 			goto done;
+=======
+	struct msm_v4l2_format_data *data = q->drv_priv;
+
+	if (!data) {
+		pr_err("%s: drv_priv NULL\n", __func__);
+		return -EINVAL;
+	}
+	if (data->type == V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE) {
+		if (WARN_ON(data->num_planes > VIDEO_MAX_PLANES))
+			return -EINVAL;
+>>>>>>> cbddcbc... Whisky: Import changes
 
 		*num_planes = data->num_planes;
 
@@ -40,6 +56,7 @@ static int msm_vb2_queue_setup(struct vb2_queue *q,
 	} else {
 		pr_err("%s: Unsupported buf type :%d\n", __func__,
 			   data->type);
+<<<<<<< HEAD
 		goto done;
 	}
 	rc = 0;
@@ -50,6 +67,14 @@ done:
 }
 
 static int msm_vb2_buf_init(struct vb2_buffer *vb)
+=======
+		return -EINVAL;
+	}
+	return 0;
+}
+
+int msm_vb2_buf_init(struct vb2_buffer *vb)
+>>>>>>> cbddcbc... Whisky: Import changes
 {
 	struct msm_stream *stream;
 	struct msm_session *session;

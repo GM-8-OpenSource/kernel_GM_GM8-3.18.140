@@ -218,7 +218,11 @@ struct msm_camera_private_ioctl_arg {
 	__u32 size;
 	__u32 result;
 	__u32 reserved;
+<<<<<<< HEAD
 	__u64 ioctl_ptr;
+=======
+	__user __u64 ioctl_ptr;
+>>>>>>> cbddcbc... Whisky: Import changes
 };
 
 #define VIDIOC_MSM_CAMERA_PRIVATE_IOCTL_CMD \

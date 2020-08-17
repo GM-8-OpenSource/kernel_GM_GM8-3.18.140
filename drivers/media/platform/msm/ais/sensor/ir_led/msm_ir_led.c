@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* Copyright (c) 2016-2018, The Linux Foundation. All rights reserved.
+=======
+/* Copyright (c) 2016-2017, The Linux Foundation. All rights reserved.
+>>>>>>> cbddcbc... Whisky: Import changes
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -312,6 +316,13 @@ static long msm_ir_led_subdev_do_ioctl(
 		(struct msm_ir_led_cfg_data_t32 *)arg;
 	struct msm_ir_led_cfg_data_t ir_led_data;
 
+<<<<<<< HEAD
+=======
+	ir_led_data.cfg_type = u32->cfg_type;
+	ir_led_data.pwm_duty_on_ns = u32->pwm_duty_on_ns;
+	ir_led_data.pwm_period_ns = u32->pwm_period_ns;
+
+>>>>>>> cbddcbc... Whisky: Import changes
 	switch (cmd) {
 	case VIDIOC_MSM_IR_LED_CFG32:
 		cmd = VIDIOC_MSM_IR_LED_CFG;
@@ -320,10 +331,13 @@ static long msm_ir_led_subdev_do_ioctl(
 		return msm_ir_led_subdev_ioctl(sd, cmd, arg);
 	}
 
+<<<<<<< HEAD
 	ir_led_data.cfg_type = u32->cfg_type;
 	ir_led_data.pwm_duty_on_ns = u32->pwm_duty_on_ns;
 	ir_led_data.pwm_period_ns = u32->pwm_period_ns;
 
+=======
+>>>>>>> cbddcbc... Whisky: Import changes
 	rc = msm_ir_led_subdev_ioctl(sd, cmd, &ir_led_data);
 
 	return rc;
