@@ -26,6 +26,11 @@
 #define IPA_NAT_DEV_NAME "ipaNatTable"
 
 /**
+ * name for default value of invalid protocol of NAT
+ */
+#define IPAHAL_NAT_INVALID_PROTOCOL             0xFF
+
+/**
  * IPA IPv6CT table character device name
  */
 #define IPA_IPV6CT_DEV_NAME "ipaIpv6CTTable"
